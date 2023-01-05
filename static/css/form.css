@@ -172,6 +172,16 @@ body.active
     max-width: 100%;
     cursor: pointer ;
 }
+.formBx .form form input[type="submit"].active
+{
+    
+    background: #F06543;
+    border: none;
+    color: #FFF;
+    max-width: 100%;
+    cursor: pointer ;
+}
+
 .formBx .form form .forgot
 {
     color: #333;
