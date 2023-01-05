@@ -8,7 +8,7 @@ app.config['SECRET_KEY'] = "kingkey"
 
 @app.route('/')
 def home():
-    return render_template("html/index.html")
+    return render_template("html/login.html")
 
 
 @app.route('/cadastro', methods=['POST'])
@@ -16,7 +16,7 @@ def home():
 def login():
     if request.form.get('btn') == "Entrar":
         usuario = request.form.get('user')
-        
+        return render_template("html/acesso.html", usuario=usuario)   
     if request.form.get('btn') == "Cadastrar":
         usuario = request.form.get('nvuser')
         email = request.form.get('email')
@@ -25,18 +25,18 @@ def login():
         if '@' not in email or '.com' not in email:
             flash("Email Inválido!")
             return redirect('/')
-        if senha0 != senha1:
+        elif senha0 != senha1:
             flash("Senhas incoerentes!")
             return redirect('/')
 
-    return render_template("html/acesso.html", usuario=usuario)
+    return render_template("html/valida.html")
 
 
 
-"""@app.route('/acesso')
+@app.route('/valida')
 def acesso():
-    return render_template("html/acesso.html", usuario = usuario)
-"""
+    return render_template("html/valida.html")
+
 
 if __name__ in '__main__':
     app.run(debug=True)

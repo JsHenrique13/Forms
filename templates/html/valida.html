@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/valida.css') }}">
+    <title>Validação</title>
+</head>
+<body>
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        <div id="alerta">
+            {{ mensagens[0] }}
+        </div>
+    {% endif %}
+
+    <div class="greenBg">
+        <h4>Um Código de validação foi enviado para o seu email.</h4>
+        <h3>Informe a sua chave:</h3>
+        <form class="formv" action="validar" method="post">
+            <input type="tel" name="codigo" maxlength="6" max="6">
+            <input type="submit" value="Validar">
+        </form>
+    </div>
+    
+</body>
+</html>
