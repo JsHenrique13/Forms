@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+</head>
+<body class="active" >
+    {% set mensagens = get_flashed_messages() %}
+        {% if mensagens %}
+            <div id="alerta">
+                {{ mensagens[0] }}
+            </div>
+        {% endif %}
+    
+    <div class="container">
+        <div class="blueBg">
+            <div class="box signin">
+                <h2>
+                    Já Possui uma conta ?
+                </h2>
+                <button class="signinBtn">Entrar</button>
+            </div>
+            <div class="box signup">
+                <h2>
+                    Não possui uma conta ?
+                </h2>
+                <button class="signupBtn">Cadastrar</button>
+            </div>
+        </div>
+        <div class="formBx active">
+            <div class="form signinForm">
+                <form action="login" method="post">
+                    <h3>
+                        Entrar
+                    </h3>
+                    <input type="text" name="user" placeholder="Usuario" required>
+                    <input type="password" name="senha" placeholder="Senha" required>
+                    <input type="submit" name="btn" value="Entrar">
+                    <a href="#" class="forgot">Recuperar Senha</a>
+                </form>
+            </div>
+            <div class="form signupForm">
+                <form action="cadastro" method="post">
+                    <h3>
+                        Cadastrar
+                    </h3>
+                    <input type="text" name="nvuser" placeholder="Usuario" required>
+                    <input type="text" name="email" placeholder="Email Pessoal" required>
+                    <input type="password" name="nvsenha" placeholder="Senha" required>
+                    <input type="password" name="cnvsenha" placeholder="Confirmar Senha" required>
+                    <input type="submit" name="btn" value="Cadastrar">
+    
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const signinBtn = document.querySelector('.signinBtn')
+        const signupBtn = document.querySelector('.signupBtn')
+        const formBx = document.querySelector('.formBx')
+        const body = document.querySelector('body')
+        signupBtn.onclick = function(){
+            formBx.classList.add('active')
+            body.classList.add('active')
+        }
+        signinBtn.onclick = function(){
+            formBx.classList.remove('active')
+            body.classList.remove('active')
+        }
+    </script>
+
+</body>
+</html>
