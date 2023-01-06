@@ -5,20 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ponto Assesi</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
     <div class="topo">
         <h1>logo</h1>
         <div class="menu">
-            <a href="#">Home</a>
-            <a href="#">Entrar</a>
+            
+            <a href="/login">Entrar</a>
             <a href="#">Sobre</a>
             <a href="#">Contato</a>
         </div>
     </div>
     <div class="conteinerbox">
-        <h2>Para ver o seu banco de horas faça <a href="">Login</a></h2>
+        <h2>Para ver o seu banco de horas faça <a href="/login">Login</a></h2>
+    </div>
+    <div class="footer">
+        <p>jshenrique@assesi.com</p>
+        <p>(88) 99970 0778</p>
+        <p>@jshenrique.py</p>
+        <p>Henrique Pinheiro</p>
     </div>
 </body>
 </html>

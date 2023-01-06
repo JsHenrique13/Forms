@@ -8,11 +8,10 @@ app.config['SECRET_KEY'] = "kingkey"
 
 @app.route('/')
 def home():
-    return render_template("html/login.html")
+    return render_template("html/index.html")
 
 
-@app.route('/cadastro', methods=['POST'])
-@app.route('/login', methods=['POST'])
+@app.route('/login')
 def login():
     if request.form.get('btn') == "Entrar":
         usuario = request.form.get('user')
@@ -29,7 +28,7 @@ def login():
             flash("Senhas incoerentes!")
             return redirect('/')
 
-    return render_template("html/valida.html")
+    return render_template("html/login.html")
 
 
 
