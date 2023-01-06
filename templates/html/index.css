@@ -14,6 +14,7 @@ body
 }
 .topo
 {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,7 +22,7 @@ body
     padding-right: 20px;
     background: #002642;
     color: #FCFCFC;
-    height: 18vh;
+    height: 18%;
     width: 100vw;
     
 }
@@ -57,7 +58,7 @@ body
     align-items: center;
     margin: 0 10%;
     
-    height: 82vh;
+    height: 1200px;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
 }
