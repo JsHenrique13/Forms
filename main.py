@@ -86,30 +86,34 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    dados = {}
+    dados = dict()
     if request.form.get('btn') == "Entrar":
-        usuario = request.form.get('user')
-        senha = request.form.get('senha')
-        with open('user.json') as usuarios:
-            user = json.load(usuarios)
+        try:
+            email = request.form.get('email')
+            senha = request.form.get('senha')
+            with open('user.json') as usuarios:
+                user = json.load(usuarios)
             for c in user:
-                if usuario == c["nome"] and senha == c["senha"]:
-                    return render_template("html/acesso.html", usuario=usuario)
-                else:
-                    flash("Credenciais Inválidas!")      
+                if email == c["email"] and senha == c["senha"]:
+                    return render_template("html/acesso.html", usuario=pegauser())
+                
+        except:
+            flash("Credenciais Inválidas! Tente criar uma conta")
+            redirect('/login')
+
     if request.form.get('btn') == "Cadastrar":
         usuario = request.form.get('nvuser')
         email = request.form.get('email')
         senha0 = request.form.get('nvsenha')
         senha1 = request.form.get('cnvsenha')
-        dados.update("nome", usuario)
-        dados.update("email", email)
-        dados.update("senha", senha0)
-        dados.update("chave", geracodigo())
-        #   dados["nome"] = usuario
-        #   dados["email"] = email
-        #   dados["senha"] = senha0
-        #   dados["chave"] = geracodigo()
+        #   dados.update("nome", usuario)
+        #   dados.update("email", email)
+        #   dados.update("senha", senha0)
+        #   dados.update("chave", geracodigo())
+        dados["nome"] = usuario
+        dados["email"] = email
+        dados["senha"] = senha0
+        dados["chave"] = geracodigo()
         with open("user.json", "w", encoding="utf-8") as file:
             json.dump(dados, file, indent=4, sort_keys=True)
         if '@' not in email or '.com' not in email:

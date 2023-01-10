@@ -13,8 +13,9 @@
             <div id="alerta">
                 {{ mensagens[0] }}
             </div>
-        {% endif %}
-    
+            
+        {% endif %}     
+            
     <div class="container">
         <div class="blueBg">
             <div class="box signin">
@@ -36,7 +37,7 @@
                     <h3>
                         Entrar
                     </h3>
-                    <input type="text" name="user" placeholder="Usuario" required>
+                    <input type="text" name="email" placeholder="Email" required>
                     <input type="password" name="senha" placeholder="Senha" required>
                     <input type="submit" name="btn" value="Entrar">
                     <a href="#" class="forgot">Recuperar Senha</a>
@@ -57,8 +58,9 @@
             </div>
         </div>
     </div>
-    
+     
     <script>
+        const alerta = document.querySelector('#alerta')
         const signinBtn = document.querySelector('.signinBtn')
         const signupBtn = document.querySelector('.signupBtn')
         const formBx = document.querySelector('.formBx')
@@ -66,11 +68,15 @@
         signupBtn.onclick = function(){
             formBx.classList.add('active')
             body.classList.add('active')
+            
         }
         signinBtn.onclick = function(){
             formBx.classList.remove('active')
             body.classList.remove('active')
+            alerta.classList.add('active')
+            
         }
+        
     </script>
 
 </body>

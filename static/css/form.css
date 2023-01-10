@@ -200,6 +200,11 @@ body.active
 
 }
 
+#alerta.active
+{
+    display: none;
+}
+
 
 
 
@@ -208,7 +213,7 @@ body.active
     
     .container
     {
-        min-width: 320px;
+        max-width: 320px;
         height: 600px;
         display: flex;
         justify-content: center;
@@ -245,5 +250,22 @@ body.active
         left: 0;
         top: 150px;
     }
+    #alerta
+    {
+        position: relative;
+        font-weight: 700;
+        z-index: 110000;
+        background: rgba(255, 255, 255, 0.5);
+        border: 2px solid rgb(224, 25, 25);
+        border-radius: 15px;
+        padding: 5px 10px;
+        top: 15px;
+
+    }
+    #alerta.active
+    {
+        display: none;
+    }
+
 
 }
