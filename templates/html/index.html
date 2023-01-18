@@ -18,7 +18,23 @@
         </div>
     </div>
     <div class="conteinerbox">
-        <h2>Para ver o seu banco de horas faça <a href="/login">Login</a></h2>
+        <div class="add">
+            <h2>Tabela de Demandas</h2>
+        
+        </div>
+        <button class="addbtn">Adicionar Operador</button>
+        <form class="addform" method="post">
+            <input type="text" name="nome" placeholder="Nome" size="15" required>
+            <input type="button" class="donebtn" name="btn" value="Add">
+        </form>
+
+        <div class="boxdemanda">
+            
+            {%for i in range(0, len)%} 
+                <h2>{{list[i]}}</h2> 
+            {%endfor%} 
+            
+        </div>
     </div>
     <div class="footer">
         <p>jshenrique@assesi.com</p>
@@ -26,5 +42,25 @@
         <p>@jshenrique.py</p>
         <p>Henrique Pinheiro</p>
     </div>
+
+
+
+    <script>
+        
+        const addbtn = document.querySelector('.addbtn')
+        const addform = document.querySelector('.addform')
+        const donebtn = document.querySelector('.donebtn')
+        addbtn.onclick = function(){
+            addform.classList.add('active')
+            addbtn.classList.add('active')    
+        }
+        donebtn.onclick = function(){
+            addform.classList.remove('active')
+            addbtn.classList.remove('active')
+        }
+
+
+        
+    </script>
 </body>
 </html>
